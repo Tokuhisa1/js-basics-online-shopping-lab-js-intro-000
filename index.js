@@ -29,7 +29,7 @@ function viewCart() {
     if (i < cart.length - 1) { view = view + ', '; }
     if (i == cart.length - 2) { view = view + 'and '; }
   }
-  
+
   return view + '.';
 }
 
