@@ -26,24 +26,14 @@ function addToCart(item) {
 // and eggs at $49.
 function viewCart() {
   // write your code here
-  // If the cart is empty, the function should instead return
-  // Your shopping cart is empty.
   if (cart.length < 1) { return 'Your shopping cart is empty.'; }
-// Note: Pay close attention to the syntax above. The returned
-// statement should be a single sentence that begins with In your
-// cart, you have, terminates in a period, and can assume the
-// following shapes according to how many items the cart contains:
-  // 1 item — In your cart, you have bananas at $17.
-  if (cart.length == 1) {
-    return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`;
+  var view = 'In your cart, you have ';
+  for (var i = 0; i < cart.length; i = i + 1) {
+    view = view + `${cart[i].itemName} at $${cart[i].itemPrice}`;
+    if (i < cart.length - 1) { view = view + ', '; }
+    if (i == cart.length - 2) { view = view + 'and '; }
   }
-  // 2 items — In your cart, you have bananas at $17, and pancake
-  // batter at $5.
-  if (cart.length == 2) {
-    return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, and ${cart[1].itemName} at $${cart[1].itemPrice}.`;
-  }
-  // 3+ items — In your cart, you have bananas at $17, pancake
-  // batter at $5, and eggs at $49.
+  return view + '.';
 }
 
 function total() {
